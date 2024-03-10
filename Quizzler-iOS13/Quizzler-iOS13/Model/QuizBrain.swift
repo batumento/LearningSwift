@@ -62,6 +62,7 @@ struct QuizBrain
         }
         else
         {
+            score = 0
             questionNumber = 0
         }
     }
