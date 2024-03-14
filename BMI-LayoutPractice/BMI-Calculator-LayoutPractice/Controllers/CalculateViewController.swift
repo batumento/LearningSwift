@@ -19,6 +19,8 @@ class CalculateViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        heightLabel.text = calculatorBrain.getHeight(height: heightSlider.value)
+        weightLabel.text = calculatorBrain.getWeight(weight: weightSlider.value)
     }
 
     @IBAction func heightChanged(_ sender: UISlider)
@@ -39,7 +41,7 @@ class CalculateViewController: UIViewController {
         if segue.identifier == "goToResult"
         {
             let destinationVC = segue.destination as! ResultViewController
-            destinationVC.bmiValue = calculatorBrain.getBMI()
+            destinationVC.calcBMI = calculatorBrain
         }
     }
 }
