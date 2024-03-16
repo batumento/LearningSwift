@@ -10,9 +10,10 @@ import UIKit
 
 class CalculatorViewController: UIViewController {
 
-    var tipPercantage: String?
+    var tipPercantage: Float?
     var billValue: Float?
     var numberOfPeople: Int?
+    var perPerson: Float?
     @IBOutlet weak var splitNumberLabel: UILabel!
     @IBOutlet weak var twentyPctButton: UIButton!
     @IBOutlet weak var tenPctButton: UIButton!
@@ -21,7 +22,7 @@ class CalculatorViewController: UIViewController {
 
     override func viewDidLoad() 
     {
-        tipPercantage = String(tenPctButton.currentTitle!.dropLast())
+        tipPercantage = Float(String(tenPctButton.currentTitle!.dropLast()))
         numberOfPeople = Int(splitNumberLabel.text!)
     }
 
@@ -30,7 +31,7 @@ class CalculatorViewController: UIViewController {
         billTextField.endEditing(true)
         clearSelect()
         sender.isSelected = true
-        tipPercantage = String(sender.currentTitle!.dropLast())
+        tipPercantage = Float(String(sender.currentTitle!.dropLast()))
     }
 
     @IBAction func stepperPressed(_ sender: UIStepper) 
@@ -42,21 +43,25 @@ class CalculatorViewController: UIViewController {
 
     @IBAction func calculatePressed(_ sender: UIButton)
     {
-        var int_pct = Float(tipPercantage!) ?? 0
+        var int_pct = tipPercantage ?? 0
         int_pct = int_pct / 100
         billValue = Float(billTextField.text?.replacingOccurrences(of: ",", with: ".") ?? "0.0")
         let personBill = billValue! / Float(numberOfPeople!)
-        let addPct = personBill + (personBill * int_pct)
-        print(addPct)
+        perPerson = personBill + (personBill * int_pct)
+        print(perPerson!)
+        print(tipPercantage!)
         performSegue(withIdentifier: "goToResult", sender: self)
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToResult" {
-            _ = segue.destination as! ResultViewController
-            //
+            let destinationVC = segue.destination as! ResultViewController
+            destinationVC.perPerson = self.perPerson
+            destinationVC.numberPeople = self.numberOfPeople
+            destinationVC.tipPerct = self.tipPercantage
         }
     }
+
     func clearSelect()
     {
         zeroPctButton.isSelected = false
