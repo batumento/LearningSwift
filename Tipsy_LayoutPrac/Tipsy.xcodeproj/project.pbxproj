@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		5A61641B2BA3445100E4846B /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A61641A2BA3445100E4846B /* ResultViewController.swift */; };
-		5AF2AAD52BA44D620099E238 /* TipsyBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF2AAD42BA44D620099E238 /* TipsyBrain.swift */; };
-		5AF2AAD72BA44D6D0099E238 /* Tipsy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AF2AAD62BA44D6D0099E238 /* Tipsy.swift */; };
 		ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689522326708D006D4E2B /* AppDelegate.swift */; };
 		ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689542326708D006D4E2B /* SceneDelegate.swift */; };
 		ADB689572326708D006D4E2B /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADB689562326708D006D4E2B /* CalculatorViewController.swift */; };
@@ -20,8 +18,6 @@
 
 /* Begin PBXFileReference section */
 		5A61641A2BA3445100E4846B /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		5AF2AAD42BA44D620099E238 /* TipsyBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsyBrain.swift; sourceTree = "<group>"; };
-		5AF2AAD62BA44D6D0099E238 /* Tipsy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tipsy.swift; sourceTree = "<group>"; };
 		ADB6894F2326708D006D4E2B /* Tipsy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tipsy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ADB689522326708D006D4E2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ADB689542326708D006D4E2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,15 +46,6 @@
 				5A61641A2BA3445100E4846B /* ResultViewController.swift */,
 			);
 			path = Controller;
-			sourceTree = "<group>";
-		};
-		5A6164182BA3441800E4846B /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				5AF2AAD42BA44D620099E238 /* TipsyBrain.swift */,
-				5AF2AAD62BA44D6D0099E238 /* Tipsy.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		5A6164192BA3443200E4846B /* View */ = {
@@ -90,7 +77,6 @@
 			children = (
 				ADB689522326708D006D4E2B /* AppDelegate.swift */,
 				ADB689542326708D006D4E2B /* SceneDelegate.swift */,
-				5A6164182BA3441800E4846B /* Model */,
 				5A6164192BA3443200E4846B /* View */,
 				5A6164172BA3440A00E4846B /* Controller */,
 				ADB6895B2326708E006D4E2B /* Assets.xcassets */,
@@ -173,10 +159,8 @@
 			files = (
 				ADB689572326708D006D4E2B /* CalculatorViewController.swift in Sources */,
 				ADB689532326708D006D4E2B /* AppDelegate.swift in Sources */,
-				5AF2AAD52BA44D620099E238 /* TipsyBrain.swift in Sources */,
 				ADB689552326708D006D4E2B /* SceneDelegate.swift in Sources */,
 				5A61641B2BA3445100E4846B /* ResultViewController.swift in Sources */,
-				5AF2AAD72BA44D6D0099E238 /* Tipsy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
