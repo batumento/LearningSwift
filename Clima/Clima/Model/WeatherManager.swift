@@ -12,7 +12,7 @@ struct  WeatherManager
 {
     let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric"
-
+    
     func fetchWeather(cityName: String?)
     {
         let urlString = "\(weatherURL)&q=\(cityName!)&appid=\(apiKey)"
@@ -24,22 +24,33 @@ struct  WeatherManager
         if let url = URL(string: urlString)
         {
             let urlSession = URLSession(configuration: .default)
-            let task = urlSession.dataTask(with: url, completionHandler: handler(data: response: error: ))
+            let task = urlSession.dataTask(with: url)
+            { data, response, error in
+                if error != nil
+                {
+                    return
+                }
+                if let safeData = data
+                {
+                    self.parseJSON(weitherData: safeData)
+                }
+            }
+            
             task.resume()
         }
     }
 
-    func handler(data: Data?, response: URLResponse?, error: Error?)
+    func parseJSON(weitherData: Data)
     {
-        if error != nil 
+        let decoder = JSONDecoder()
+        do
         {
-            print(error!)
-            return
+            let decodedData = try decoder.decode(WeitherData.self, from: weitherData)
+            print(decodedData.weather[0].description)
         }
-        if let safeData = data
+        catch
         {
-            let dataString = String(data: safeData, encoding: .utf8)
-            print(dataString!)
+            print(error)
         }
     }
 }
