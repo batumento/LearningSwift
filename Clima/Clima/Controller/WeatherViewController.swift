@@ -79,6 +79,7 @@ extension WeatherViewController: WeatherManager.WeatherManagerDelegate
         DispatchQueue.main.async {
             self.temperatureLabel.text = weather.temperatureString
             self.conditionImageView.image = UIImage(systemName: weather.conditionName)
+            self.cityLabel.text = weather.name
         }
     }
 
@@ -91,8 +92,20 @@ extension WeatherViewController: WeatherManager.WeatherManagerDelegate
 
 extension WeatherViewController: CLLocationManagerDelegate
 {
+    
+    @IBAction func userLocationPressed(_ sender: UIButton) 
+    {
+        locationManager.requestLocation()
+    }
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print(locations)
+        if let location = locations.last
+        {
+            locationManager.stopUpdatingLocation()
+            let lat = location.coordinate.latitude
+            let lon = location.coordinate.longitude
+            weatherManager.fetchWeather(latitude: lat, longitude: lon)
+        }
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
