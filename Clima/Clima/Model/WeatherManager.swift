@@ -8,13 +8,14 @@
 
 import Foundation
 
+protocol WeatherManagerDelegate
+{
+    func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
+    func didFailWithError(error: Error)
+}
+
 struct  WeatherManager
 {
-    protocol WeatherManagerDelegate
-    {
-        func didUpdateWeather(_ weatherManager: WeatherManager, weather: WeatherModel)
-        func didFailWithError(error: Error)
-    }
 
     let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric"
