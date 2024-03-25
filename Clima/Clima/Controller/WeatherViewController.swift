@@ -28,6 +28,8 @@ class WeatherViewController: UIViewController
 
         weatherManager.delegate = self
         searchTextField.delegate = self
+        
+        //print(weatherManager.getAPIKey())
     }
 }
 
@@ -84,7 +86,7 @@ extension WeatherViewController: WeatherManagerDelegate
     }
 
     func didFailWithError(error: any Error) {
-        print(error)
+        //print(error)
     }
 }
 
@@ -109,6 +111,6 @@ extension WeatherViewController: CLLocationManagerDelegate
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
-        print(error)
+        //print(error)
     }
 }

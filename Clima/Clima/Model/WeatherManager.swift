@@ -14,22 +14,42 @@ protocol WeatherManagerDelegate
     func didFailWithError(error: Error)
 }
 
+//Create your own Key-Value value in the property list with your own API key value.
+struct Security: Decodable
+{
+    //Key name: API Key value
+    let API_KEY: String
+}
+
 struct  WeatherManager
 {
-
-    let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? ""
+    //Create a file named "Security" in Outline (Project directory) with the extension "plist" (Property List).
+    let apiURL = Bundle.main.url(forResource: "Security", withExtension: "plist")!
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric"
 
     var delegate: WeatherManagerDelegate?
 
+    private func getAPIKey() -> String
+    {
+        do
+        {
+            let data = try Data(contentsOf: apiURL)
+            let result = try PropertyListDecoder().decode(Security.self, from: data)
+            return result.API_KEY
+        }
+        catch { return error.localizedDescription }
+    }
+
     func fetchWeather(cityName: String?)
     {
+        let apiKey = getAPIKey()
         let urlString = "\(weatherURL)&q=\(cityName!)&appid=\(apiKey)"
         performRequest(with: urlString)
     }
 
     func fetchWeather(latitude: Double?, longitude: Double?)
     {
+        let apiKey = getAPIKey()
         let urlString = "\(weatherURL)&lat=\(latitude!)&lon=\(longitude!)&appid=\(apiKey)"
         performRequest(with: urlString)
     }

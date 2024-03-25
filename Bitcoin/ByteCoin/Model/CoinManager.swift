@@ -13,14 +13,28 @@ protocol CoinManagerDelegate: AnyObject {
     func getCurrencyPrice(_ price: Double, _ currency: String)
 }
 
+struct Security: Codable
+{
+    let API_KEY: String
+}
+
 struct CoinManager {
 
-
+    let apiURL = Bundle.main.url(forResource: "Security", withExtension: "plist")!
     let baseURL = "https://rest.coinapi.io/v1/exchangerate/BTC"
-    let apiKey = ProcessInfo.processInfo.environment["API_KEY"] ?? "ErrorAPI"
     let currencyArray = ["AUD", "BRL","CAD","CNY","EUR","GBP","HKD","IDR","ILS","INR","JPY","MXN","NOK","NZD","PLN","RON","RUB","SEK","SGD","USD","ZAR"]
 
     var delegate: CoinManagerDelegate?
+
+    private func getAPI() -> String
+    {
+        do
+        {
+            let data = try Data(contentsOf: apiURL)
+            let result = try PropertyListDecoder().decode(Security.self, from: data)
+            return result.API_KEY
+        } catch { return "Check Security.plist"}
+    }
 
     func getCoinPrice(for currency: String)
     {
@@ -29,6 +43,7 @@ struct CoinManager {
 
     func performRequest(currencyD: String)
     {
+        let apiKey = getAPI()
         if let url = URL(string: "\(baseURL)/\(currencyD)?apikey=\(apiKey)")
         {
             let session = URLSession(configuration: .default)
