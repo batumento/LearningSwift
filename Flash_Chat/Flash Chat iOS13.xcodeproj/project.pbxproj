@@ -20,6 +20,7 @@
 		5AC6D8E52BB80CA900FB6D32 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5AC6D8E42BB80CA900FB6D32 /* FirebaseAuth */; };
 		5AC6D8E72BB80CA900FB6D32 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5AC6D8E62BB80CA900FB6D32 /* FirebaseFirestore */; };
 		5AC6D8E92BB8226F00FB6D32 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5AC6D8E82BB8226F00FB6D32 /* GoogleService-Info.plist */; };
+		5AC6D8EB2BB84DAA00FB6D32 /* K.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AC6D8EA2BB84DAA00FB6D32 /* K.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		0B628190235DF01B00E35CAF /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
 		0B62819D235F0F4D00E35CAF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		5AC6D8E82BB8226F00FB6D32 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5AC6D8EA2BB84DAA00FB6D32 /* K.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = K.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				0B628181235DEE8400E35CAF /* LaunchScreen.storyboard */,
 				0B628184235DEE8400E35CAF /* Info.plist */,
 				5AC6D8E82BB8226F00FB6D32 /* GoogleService-Info.plist */,
+				5AC6D8EA2BB84DAA00FB6D32 /* K.swift */,
 			);
 			path = "Flash Chat iOS13";
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				0B628177235DEE8100E35CAF /* AppDelegate.swift in Sources */,
 				0B628179235DEE8100E35CAF /* SceneDelegate.swift in Sources */,
 				0B62818F235DF01000E35CAF /* LoginViewController.swift in Sources */,
+				5AC6D8EB2BB84DAA00FB6D32 /* K.swift in Sources */,
 				0B628191235DF01B00E35CAF /* ChatViewController.swift in Sources */,
 				0B62818D235DF00B00E35CAF /* RegisterViewController.swift in Sources */,
 			);
