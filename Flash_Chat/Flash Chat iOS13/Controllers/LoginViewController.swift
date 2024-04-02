@@ -23,7 +23,7 @@ class LoginViewController: UIViewController {
 
                 if let e = error
                 {
-                    print(e)
+                    print(e.localizedDescription)
                 }
                 else
                 {
