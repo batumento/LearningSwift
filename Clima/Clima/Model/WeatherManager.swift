@@ -23,7 +23,7 @@ struct Security: Decodable
 
 struct  WeatherManager
 {
-    //Create a file named "Security" in Outline (Project directory) with the extension "plist" (Property List).
+    
     let apiURL = Bundle.main.url(forResource: "Security", withExtension: "plist")!
     let weatherURL = "https://api.openweathermap.org/data/2.5/weather?units=metric"
 

@@ -20,7 +20,6 @@ class LoginViewController: UIViewController {
         {
             Auth.auth().signIn(withEmail: email, password: password) 
             {   authResult, error in
-
                 if let e = error
                 {
                     print(e.localizedDescription)
